@@ -1,3 +1,3 @@
 # Clon de INSTAGRAM con node, graphql, react, mongodb
 
-## CAPITULO02 - Integración de mongodb (mongoose) con graphql y nodejs
+## CAPITULO03 - Modelos, esquemas y resolvers en Mongoose y GraphQL
