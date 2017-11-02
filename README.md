@@ -1,3 +1,3 @@
 # Clon de INSTAGRAM con node, graphql, react, mongodb
 
-## CAPITULO04 - Comenzando un frontend con React, rutas, y Apollo
+## CAPITULO05 - Maquetando y estilizando componentes de autenticación en React con semantic UI React
