@@ -7,6 +7,7 @@ const userSchema = mongoose.Schema({
     required: [true, "El campo usuario es requerido"]
   },
   password: String,
+  fullname: String,
   desc: String,
   bio: String,
   email: String,
