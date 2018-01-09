@@ -21,6 +21,7 @@ const schema = makeExecutableSchema({
   resolvers,
 });
 const PORT = 3000;
+const SECRET = "ajhfshflkjfFSDFSjwehrkwjr;qek";
 
 const app = express();
 app.use(cors({
@@ -32,6 +33,7 @@ app.use('/graphql', bodyParser.json(), graphqlExpress({
   schema,
   context: {
     models,
+    SECRET,
     user: {
       _id: 1, username: 'bob'
     }

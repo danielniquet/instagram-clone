@@ -1,13 +1,13 @@
 import React from 'react';
-import { Divider, Form, Button, Icon } from 'semantic-ui-react'
+import { Divider, Form, Button, Icon, Message } from 'semantic-ui-react'
 
 
-export default ({styles, handleClick, handleSubmit}) => {
-  const args={}
-
-  const handleChange = (ev, input)=>{
-    args[input.name] = input.value
-  }
+export default ({styles, handleClick, handleSubmit, handleChange, args, errors}) => {
+  // const args={}
+  //
+  // const handleChange = (ev, input)=>{
+  //   args[input.name] = input.value
+  // }
 
   return (
   <div>
@@ -25,6 +25,10 @@ export default ({styles, handleClick, handleSubmit}) => {
           <Button color="facebook">
             <Icon name="facebook" /> Iniciar sesión con facebook
           </Button>
+          {
+            errors.length?<Message negative header="Los siguientes errores:"
+              list={errors.map(error=>`[${error.path}] ${error.message}`)} />:null
+          }
         </Form>
     </div>
     <div  style={styles.box}>
