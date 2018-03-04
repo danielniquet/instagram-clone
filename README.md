@@ -1,5 +1,5 @@
 # Clon de INSTAGRAM con node, graphql, react, mongodb
 
-## CAPITULO08 - Autenticación con JSON web tokens en GraphQL
+## CAPITULO09 - Validando y refrescando json web tokens con nodejs y graphql
 
-[Ir al video dónde hice esto...](https://youtu.be/4HMV1zm8dB0)
+[Ir al video dónde hice esto...](https://youtu.be/N-CXhNJyfLU)
