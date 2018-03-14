@@ -7,6 +7,7 @@ import models from './models'
 const auth = {
   checkHeaders: async (req, res, next) => {
     const token = req.headers["x-token"];
+    console.log("TOKEN:", token);
     if(token){
       try{
         const {user} = jwt.verify(token, process.env.SECRET )

@@ -1,5 +1,5 @@
 # Clon de INSTAGRAM con node, graphql, react, mongodb
 
-## CAPITULO09 - Validando y refrescando json web tokens con nodejs y graphql
+## CAPITULO10 - Mandar y recibir JWT tokens desde React
 
-[Ir al video dónde hice esto...](https://youtu.be/N-CXhNJyfLU)
+[Ir al video dónde hice esto...](https://youtu.be/35g3XQRHh8A)

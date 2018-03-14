@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 import {graphql} from 'react-apollo';
 import gpl from 'graphql-tag';
 import Toolbar from '../components/toolbar';
@@ -13,9 +13,9 @@ const query = gpl`{
 const userItem = (user,i)=><li key={i}>{user.username}</li>
 
 export default graphql(query)(
-  ({data: {allUsers=[], loading}}) =>[
-    <Toolbar />,
+  ({data: {allUsers=[], loading}}) => <Fragment>
+    <Toolbar />
     <ul>
       {allUsers.map(userItem)}
     </ul>
-])
+</Fragment>)

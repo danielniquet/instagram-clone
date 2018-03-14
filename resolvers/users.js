@@ -48,12 +48,12 @@ export default {
         if(password.length<8){
           otherErrors.push({path: 'password', message:'Password debe ser mayor a 8 caracteres'})
         }
-        const hashPassword = await bcrypt.hash(password, 10)
-        const user = await models.User.create({...args, password: hashPassword})
-
         if(otherErrors.length){
           throw otherErrors;
         }
+        const hashPassword = await bcrypt.hash(password, 10)
+        const user = await models.User.create({...args, password: hashPassword})
+
 
         return {
           success: user && user._id,
