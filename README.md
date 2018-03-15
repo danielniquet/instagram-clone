@@ -2,4 +2,4 @@
 
 ## CAPITULO10 - Mandar y recibir JWT tokens desde React
 
-[Ir al video dónde hice esto...](https://youtu.be/35g3XQRHh8A)
+[Ir al video dónde hice esto...](https://youtu.be/3BU3IU-HqYo)
