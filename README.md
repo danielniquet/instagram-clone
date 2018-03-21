@@ -1,5 +1,5 @@
 # Clon de INSTAGRAM con node, graphql, react, mongodb
 
-## CAPITULO10 - Mandar y recibir JWT tokens desde React
+## CAPITULO11 - Logout y autenticación en rutas con react-router-dom
 
-[Ir al video dónde hice esto...](https://youtu.be/3BU3IU-HqYo)
+[Ir al video dónde hice esto...](https://youtu.be/xipOqw4izIg)

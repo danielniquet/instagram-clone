@@ -25,8 +25,13 @@ const authAfterware = new ApolloLink((operation, forward) => {
       if (token) {
         localStorage.setItem("token", token);
       }
-
     }
+    if(response.errors && response.errors.length){
+      if(response.errors[0].message==="No autenticado"){
+        localStorage.removeItem('token')
+        window.location = "/login"
+      }
+    };
     return response;
   });
 });
