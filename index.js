@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 mongoose.Promise = global.Promise;
 import cors from 'cors';
 import "dotenv/config";
+import { apolloUploadExpress } from 'apollo-upload-server'
 
 // import typeDefs from './schemas'
 // import resolvers from './resolvers'
@@ -32,7 +33,7 @@ app.use(auth.checkHeaders)
 
 
 // bodyParser is needed just for POST.
-app.use('/graphql', bodyParser.json(), graphqlExpress((req)=>{
+app.use('/graphql', bodyParser.json(), apolloUploadExpress(), graphqlExpress((req)=>{
   console.log("User ID:", req.user);
   return {
     schema,
