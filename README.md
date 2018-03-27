@@ -1,5 +1,5 @@
 # Clon de INSTAGRAM con node, graphql, react, mongodb
 
-## CAPITULO12 - Cómo subir imagenes con GraphQL, NodeJS, express y react/apollo
+## CAPITULO13 - Estilizar con Semantic UI y aplicar filtros de instagram
 
-[Ir al video dónde hice esto...](https://youtu.be/j4hXjibkQBQ)
+[Ir al video dónde hice esto...](https://youtu.be/zlMWDXPO0Fw)
