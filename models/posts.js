@@ -5,7 +5,7 @@ const postSchema = mongoose.Schema({
     type:{},
     required: true
   },
-  desc: String,
+  effect: String,
   photo: String,
   likedBy:{
     type: [],

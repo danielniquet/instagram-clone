@@ -36,7 +36,32 @@ export default {
     getPost: (parent, args, {models}) => models.Post.findOne(args)
   },
   Mutation: {
-    createPost: (parent, args, {models, user}) => models.Post.create({...args.post, by: user}),
+    createPost: async (parent, {post}, {models, user}) => {
+      try{
+        const me = await models.User.findById( { _id: user } )
+        const toUpdate = {...post, by: user}
+        if(post.desc){
+          toUpdate.comments = []
+          toUpdate.comments.push({text: post.desc, user: {fullname: me.fullname} })
+        }
+        await models.Post.create(toUpdate)
+        return {
+          success:true,
+          errors:[]
+        }
+      }catch(error){
+        return {
+          success:false,
+          errors:[
+            {
+              path:"createPost",
+              message: "Error al crear post"+error
+            }
+          ]
+        }
+      }
+
+    },
     singleUpload: (obj, { file }) => processUpload(file),
   }
 }

@@ -4,11 +4,15 @@ export default `
   type Post{
     _id: ID!
     by: User
-    desc: String
+    effect: String
     photo: String
     likedBy:[User]
-    comments: [User]
+    comments: [Comment]
     createdAt: String
+  }
+  type Comment{
+    user: User
+    text: String
   }
   input iBy {
     username: String!
@@ -32,7 +36,7 @@ export default `
 
 
   type Mutation{
-    createPost(post: iPost): Post!
+    createPost(post: iPost): Response!
     singleUpload (file: Upload!): File!
   }
 `;
