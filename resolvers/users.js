@@ -37,7 +37,8 @@ export default {
     allUsers: isAuthenticatedResolver.createResolver(
       (parent, args, {models}) => models.User.find()
     ),
-    getUser: (parent, args, {models}) => models.User.findOne(args)
+    getUser: (parent, args, {models}) => models.User.findOne(args),
+    me: (parent, args, {models, user}) => models.User.findById({_id:user}),
   },
   Mutation: {
     login: async (parent, {email, password}, {models:{User}, SECRET})=> auth.login(email, password, User, SECRET),

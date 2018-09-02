@@ -17,6 +17,7 @@ export default `
   type Query{
     allUsers: [User]!
     getUser(_id: ID!): User!
+    me: User!
   }
 
   type Response {

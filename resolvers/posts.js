@@ -3,9 +3,9 @@ import mkdirp from 'mkdirp'
 import shortid from 'shortid'
 import { GraphQLUpload } from 'apollo-upload-server'
 
-const uploadDir = './uploads'
+const uploadDir = '/uploads'
 // Ensure upload directory exists
-mkdirp.sync(uploadDir)
+mkdirp.sync("."+uploadDir)
 
 const storeFS = ({ stream, filename }) => {
   const id = shortid.generate()
@@ -18,7 +18,7 @@ const storeFS = ({ stream, filename }) => {
           fs.unlinkSync(path)
         reject(error)
       })
-      .pipe(fs.createWriteStream(path))
+      .pipe(fs.createWriteStream("."+path))
       .on('error', error => reject(error))
       .on('finish', () => resolve({ id, path }))
   )
@@ -42,7 +42,7 @@ export default {
         const toUpdate = {...post, by: user}
         if(post.desc){
           toUpdate.comments = []
-          toUpdate.comments.push({text: post.desc, user: {fullname: me.fullname} })
+          toUpdate.comments.push({text: post.desc, user: {fullname: me.fullname, username: me.username} })
         }
         await models.Post.create(toUpdate)
         return {

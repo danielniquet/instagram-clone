@@ -19,8 +19,9 @@ export default `
     thumbnail: String
   }
   input iPost{
-    desc: String,
-    photo: String,
+    desc: String
+    photo: String
+    effect: String
   }
   type File {
     id: ID!
