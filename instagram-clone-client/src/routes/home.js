@@ -1,31 +1,29 @@
-import React,{Component, Fragment} from 'react';
-import {graphql} from 'react-apollo';
-import gpl from 'graphql-tag';
-import Toolbar from '../components/toolbar';
-import Dropzone from '../components/dropzone';
-
-const query = gpl`{
-  me {
-    username
-    fullname
-    email
-    thumbnail
-  }
-}
-`;
+import React, { Component, Fragment } from "react";
+import WrapperConsumer, { ActionTypes } from "../store";
+import Toolbar from "../components/toolbar";
+import Dropzone from "../components/dropzone";
 
 // const userItem = (user,i)=><li key={i}>{user.username}</li>
-class Home extends Component{
-  render(){
-    const {data: {me, loading}} = this.props
-    console.log(me);
+class Home extends Component {
+  componentDidMount() {
+    console.log(this.props);
+    const { user, dispatch } = this.props.context;
+    if (!user || !user._id) {
+      dispatch({ type: ActionTypes.GET_USER });
+    }
+  }
+
+  render() {
+    console.log(this.props);
+    const { user } = this.props.context;
+    // console.log(user);
     return (
       <Fragment>
         <Toolbar />
-        <Dropzone me={me} />
+        <Dropzone />
       </Fragment>
-    )
+    );
   }
 }
 
-export default graphql(query)(Home)
+export default WrapperConsumer(Home);

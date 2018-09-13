@@ -1,9 +1,20 @@
-import gql from 'graphql-tag'
+import gql from "graphql-tag";
 
 export default {
-  query:{
+  query: {
+    me: gql`
+      {
+        me {
+          _id
+          username
+          fullname
+          email
+          thumbnail
+        }
+      }
+    `
   },
-  mutation:{
+  mutation: {
     singleUpload: gql`
       mutation($file: Upload!) {
         singleUpload(file: $file) {
@@ -16,10 +27,10 @@ export default {
       }
     `,
     createPost: gql`
-    mutation($post: iPost){
-        createPost(post: $post){
+      mutation($post: iPost) {
+        createPost(post: $post) {
           success
-          errors{
+          errors {
             path
             message
           }
@@ -27,4 +38,4 @@ export default {
       }
     `
   }
-}
+};
