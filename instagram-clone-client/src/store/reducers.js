@@ -1,9 +1,9 @@
-import { ActionTypes } from "./";
-import _orderBy from "lodash/orderBy";
-import queries from "../queries";
+import { ActionTypes } from './';
+import _orderBy from 'lodash/orderBy';
+import queries from '../queries';
 
 export default async (state, action, client) => {
-  console.log("Reducing:", action);
+  console.log('Reducing:', action);
   switch (action.type) {
     case ActionTypes.GET_USER:
       const {
@@ -25,18 +25,22 @@ export default async (state, action, client) => {
         variables: { post: { desc, photo: fileURL, effect: filter } }
       });
 
+      // if (!responsePost.data.createPost.success) {
+      return { error: 'Error al crear el post' };
+      // }
+
       return null;
 
     case ActionTypes.ADD_POST:
-      return { posts: [...state.posts, { id: 6, title: "Post 6" }] };
+      return { posts: [...state.posts, { id: 6, title: 'Post 6' }] };
 
     case ActionTypes.GET_POSTS:
       const responseFilms = await fetch(
-        "https://swapi.co/api/films/?format=json"
+        'https://swapi.co/api/films/?format=json'
       );
       const films = await responseFilms.json();
 
-      return { posts: _orderBy(films.results, ["episode_id"], ["asc"]) };
+      return { posts: _orderBy(films.results, ['episode_id'], ['asc']) };
 
     default:
       return null;

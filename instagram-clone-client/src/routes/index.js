@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
   // Link,
   Switch,
   Redirect
-} from "react-router-dom";
-import Home from "./home";
-import Login from "./login";
-import decode from "jwt-decode";
-import { ContextStore } from "../store";
+} from 'react-router-dom';
+import Home from './home';
+import Login from './login';
+import decode from 'jwt-decode';
+import { ContextStore } from '../store';
 
-import "semantic-ui-css/semantic.min.css";
-import "../css/main.css";
+import 'semantic-ui-css/semantic.min.css';
+import '../css/main.css';
 
 const isAuthenticated = () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   let isValid = true;
   try {
     isValid = decode(token);
@@ -25,23 +25,27 @@ const isAuthenticated = () => {
   return isValid;
 };
 
-const MyRoute = props =>
-  isAuthenticated() ? <Route {...props} /> : <Redirect to="/login" />;
+const MyRoute = ({ component, ...rest }) =>
+  isAuthenticated() ? (
+    <Route {...rest} render={props => <ContextStore comp={component} />} />
+  ) : (
+    <Redirect to="/login" />
+  );
 
 const Logout = () => {
-  localStorage.removeItem("token");
+  localStorage.removeItem('token');
   return <Redirect to="/login" />;
 };
 
 export default () => (
   <Router>
     <Switch>
-      <MyRoute path="/" exact component={Home} />
-      <Route
+      <MyRoute path="/" exact component={<Home />} />
+      {/* <Route
         exact
-        path="/home"
+        path="/"
         render={props => <ContextStore comp={<Home />} />}
-      />
+      /> */}
       <Route path="/login" exact component={Login} />
       <Route path="/logout" exact component={Logout} />
     </Switch>

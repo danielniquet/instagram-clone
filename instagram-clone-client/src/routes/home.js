@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from "react";
-import WrapperConsumer, { ActionTypes } from "../store";
-import Toolbar from "../components/toolbar";
-import Dropzone from "../components/dropzone";
+import React, { Component, Fragment } from 'react';
+import WrapperConsumer, { ActionTypes } from '../store';
+import Toolbar from '../components/toolbar';
+import Dropzone from '../components/dropzone';
 
 // const userItem = (user,i)=><li key={i}>{user.username}</li>
 class Home extends Component {
@@ -15,7 +15,6 @@ class Home extends Component {
 
   render() {
     console.log(this.props);
-    const { user } = this.props.context;
     // console.log(user);
     return (
       <Fragment>

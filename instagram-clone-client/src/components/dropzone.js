@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from "react";
-import { graphql, compose } from "react-apollo";
-import Dropzone from "react-dropzone";
-import WrapperConsumer, { ActionTypes } from "../store";
+import React, { Component, Fragment } from 'react';
+import Dropzone from 'react-dropzone';
+import WrapperConsumer, { ActionTypes } from '../store';
 import {
   Dimmer,
   Header,
@@ -11,49 +10,48 @@ import {
   Button,
   Container,
   Input
-} from "semantic-ui-react";
-import Aviary from "aviary-react";
-import queries from "../queries";
-import "../css/cssgram.min.css";
+} from 'semantic-ui-react';
+import Aviary from 'aviary-react';
+import '../css/cssgram.min.css';
 
 const cssFilters = [
-  "_1977",
-  "aden",
-  "brannan",
-  "brooklyn",
-  "clarendon",
-  "earlybird",
-  "gingham",
-  "hudson",
-  "inkwell",
-  "kelvin",
-  "lark",
-  "lofi",
-  "maven",
-  "mayfair",
-  "moon",
-  "nashville",
-  "perpetua",
-  "reyes",
-  "rise",
-  "slumber",
-  "stinson",
-  "toaster",
-  "valencia",
-  "walden",
-  "willow",
-  "xpro2"
+  '_1977',
+  'aden',
+  'brannan',
+  'brooklyn',
+  'clarendon',
+  'earlybird',
+  'gingham',
+  'hudson',
+  'inkwell',
+  'kelvin',
+  'lark',
+  'lofi',
+  'maven',
+  'mayfair',
+  'moon',
+  'nashville',
+  'perpetua',
+  'reyes',
+  'rise',
+  'slumber',
+  'stinson',
+  'toaster',
+  'valencia',
+  'walden',
+  'willow',
+  'xpro2'
 ];
 
 class UploadFile extends Component {
   defaultState = {
     file: null,
     fileURL: null,
-    currentFilter: "",
+    currentFilter: '',
     advanced: false,
     active: false,
     activeView: 1,
-    desc: ""
+    desc: ''
   };
   state = this.defaultState;
   setDefaultState = () => {
@@ -77,9 +75,7 @@ class UploadFile extends Component {
       payload: { file, desc, effect: currentFilter }
     });
 
-    // if (responsePost.data.createPost.success) {
     this.setDefaultState();
-    // }
   };
   handleShowDropzone = () => {
     this.setState({ active: true });
@@ -134,9 +130,9 @@ class UploadFile extends Component {
                       onClick={ev => this.handleGoToView(2)}
                     />
                     {!advanced && <ImgPreview />}
-                    <Radio toggle onChange={this.handleAdvanced} />{" "}
-                    <span style={{ color: "black" }}>
-                      Ir a {advanced ? "Simple" : "Avanzado"}
+                    <Radio toggle onChange={this.handleAdvanced} />{' '}
+                    <span style={{ color: 'black' }}>
+                      Ir a {advanced ? 'Simple' : 'Avanzado'}
                     </span>
                     {!advanced && (
                       <Image.Group size="tiny" style={styles.divFilters}>
@@ -196,48 +192,48 @@ export default WrapperConsumer(UploadFile);
 
 const styles = {
   dropzoneContainer: {
-    background: "white",
-    color: "#333",
-    padding: "10px"
+    background: 'white',
+    color: '#333',
+    padding: '10px'
   },
   previewDiv: {
-    display: "inline-block",
-    padding: "10px",
-    background: "white",
-    color: "black",
-    position: "relative"
+    display: 'inline-block',
+    padding: '10px',
+    background: 'white',
+    color: 'black',
+    position: 'relative'
   },
   divFigure: {
-    display: "inline-block",
-    cursor: "pointer"
+    display: 'inline-block',
+    cursor: 'pointer'
   },
   figure: {
-    margin: "5px"
+    margin: '5px'
   },
   divFilters: {
-    height: "200px",
-    overflow: "auto"
+    height: '200px',
+    overflow: 'auto'
   },
   h4: {
-    color: "black",
+    color: 'black',
     marginBottom: 0
   },
   previewFigure: {
-    display: "inline-block"
+    display: 'inline-block'
   },
   showDropzoneButton: {
-    position: "fixed",
-    bottom: "10px",
-    right: "10px"
+    position: 'fixed',
+    bottom: '10px',
+    right: '10px'
   },
   rightButton: {
-    position: "absolute",
-    top: "10px",
-    right: "10px"
+    position: 'absolute',
+    top: '10px',
+    right: '10px'
   },
   leftButton: {
-    position: "absolute",
-    top: "10px",
-    left: "10px"
+    position: 'absolute',
+    top: '10px',
+    left: '10px'
   }
 };

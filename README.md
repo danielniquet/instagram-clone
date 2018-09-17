@@ -1,9 +1,5 @@
 # Clon de INSTAGRAM con node, graphql, react, mongodb
 
-## CAPITULO16 - Configurando React Context API
+## CAPITULO18 - Errores con Dispatch y React context API
 
-[Ir al video dónde hice esto...](https://youtu.be/2oFNFpxK0hU)
-
-## CAPITULO17 - React Context API Y React Apollo/Graphql
-
-[Ir al video dónde hice esto...](https://youtu.be/owenioUeuGA)
+[Ir al video dónde hice esto...](https://youtu.be/2G-6bkm-QUc)
